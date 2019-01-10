@@ -1,0 +1,19 @@
+version: "3"
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    ports:
+      - "8080:80"
+    volumes:
+      - data:/var/opt/gitlab
+      - logs:/var/log/gitlab
+      - config:/etc/gitlab
+    restart: always
+volumes:
+  data:
+    driver: local
+  logs:
+    driver: local
+  config:
+    driver: local
